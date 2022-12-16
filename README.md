@@ -4,7 +4,7 @@
 
 [![Actions Status](https://github.com/NadyKamenskaya/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/NadyKamenskaya/frontend-project-46/actions)
 
-![Build Status](https://github.com/NadyKamenskaya/frontend-project-46/workflows/main.yml/badge.svg)
+[![Build Status](https://github.com/NadyKamenskaya/frontend-project-46/workflows/main.yml/badge.svg)](https://github.com/NadyKamenskaya/frontend-project-46/actions)
 
 ### Code Coverage:
 
