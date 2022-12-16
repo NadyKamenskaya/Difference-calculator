@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
+      - run: make install
       - run: make test
       - run: make lint
       - name: Test & publish code coverage
