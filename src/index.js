@@ -28,5 +28,5 @@ export default (path1, path2) => {
 
   const result = Object.entries(objectDiff).reduce((acc, [key, value]) => `${acc}\n  ${key}: ${value}`, '');
 
-  console.log(`{${result}\n}`);
+  return `{${result}\n}`;
 };
