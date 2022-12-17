@@ -1,11 +1,14 @@
-import { resolve } from 'path';
+import { extname, resolve } from 'path';
 import { cwd } from 'process';
 import { readFileSync } from 'fs';
+import yaml from 'js-yaml';
 import _ from 'lodash';
 
+export const parsers = (file, fileExt) => (fileExt === 'json') ? JSON.parse(file) : yaml.load(file);
+
 export default (path1, path2) => {
-  const data1 = JSON.parse(readFileSync(resolve(cwd(), path1)));
-  const data2 = JSON.parse(readFileSync(resolve(cwd(), path2)));
+  const data1 = parsers(readFileSync(resolve(cwd(), path1)), extname(path1));
+  const data2 = parsers(readFileSync(resolve(cwd(), path2)), extname(path2));
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
 
