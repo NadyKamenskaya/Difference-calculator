@@ -44,3 +44,4 @@ gendiff --help
 
 ### Asciinemas:
 - [_**Asciinema of step 3**_](https://asciinema.org/a/KbrSLtS59ViJmsJdALjvz2Rl0)
+- [_**Asciinema of step 5**_](https://asciinema.org/a/BnxNRjucRDGUt8XdGV48i5EEz)
