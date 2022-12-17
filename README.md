@@ -4,12 +4,13 @@
 
 [![Actions Status](https://github.com/NadyKamenskaya/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/NadyKamenskaya/frontend-project-46/actions)
 
+### Build status:
+
 [![Build Status](https://github.com/NadyKamenskaya/frontend-project-46/actions/workflows/build-check.yml/badge.svg)](https://github.com/NadyKamenskaya/frontend-project-46/actions/workflows/build-check.yml)
 
 ### Code Coverage:
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/5d64825ff9e570f9f130/maintainability)](https://codeclimate.com/github/NadyKamenskaya/frontend-project-46/maintainability)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5d64825ff9e570f9f130/test_coverage)](https://codeclimate.com/github/NadyKamenskaya/frontend-project-46/test_coverage)
 
 ## Description
