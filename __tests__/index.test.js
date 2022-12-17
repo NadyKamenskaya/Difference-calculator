@@ -2,9 +2,8 @@ import { test, expect } from '@jest/globals';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import genDiff from '../src/index.js';
-import { parsers } from '../src/index.js';
 import yaml from 'js-yaml';
+import genDiff, { parsers } from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

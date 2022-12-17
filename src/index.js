@@ -4,7 +4,11 @@ import { readFileSync } from 'fs';
 import yaml from 'js-yaml';
 import _ from 'lodash';
 
-export const parsers = (file, fileExt) => (fileExt === 'json') ? JSON.parse(file) : yaml.load(file);
+export const parsers = (file, fileExt) => {
+  const result = (fileExt === 'json') ? JSON.parse(file) : yaml.load(file);
+
+  return result;
+};
 
 export default (path1, path2) => {
   const data1 = parsers(readFileSync(resolve(cwd(), path1)), extname(path1));
