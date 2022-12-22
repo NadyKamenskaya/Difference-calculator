@@ -13,27 +13,32 @@ export const parsers = (file, fileExt) => {
 export default (path1, path2) => {
   const data1 = parsers(readFileSync(resolve(cwd(), path1)), extname(path1));
   const data2 = parsers(readFileSync(resolve(cwd(), path2)), extname(path2));
-  const keys1 = Object.keys(data1);
-  const keys2 = Object.keys(data2);
 
-  const unionKeys = _.sortBy(_.union(keys1, keys2));
+  const iter = (obj1, obj2) => {
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+    const unionKeys = _.sortBy(_.union(keys1, keys2));
 
-  const objectDiff = unionKeys.reduce((acc, key) => {
-    if (keys1.includes(key) && keys2.includes(key)) {
-      if (data1[key] === data2[key]) {
-        return { ...acc, [`  ${key}`]: data1[key] };
+    const result = unionKeys.reduce((acc, key) => {
+      if (keys1.includes(key) && keys2.includes(key)) {
+        if (typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
+          return { ...acc, [`${key}`]: iter(obj1[key], obj2[key]) };
+        }
+        if (obj1[key] === obj2[key]) {
+          return { ...acc, [`${key}`]: obj1[key] };
+        }
+
+        return { ...acc, [`- ${key}`]: obj1[key], [`+ ${key}`]: obj2[key] };
+      }
+      if (keys1.includes(key) && !keys2.includes(key)) {
+        return { ...acc, [`- ${key}`]: obj1[key] };
       }
 
-      return { ...acc, [`- ${key}`]: data1[key], [`+ ${key}`]: data2[key] };
-    }
-    if (keys1.includes(key) && !keys2.includes(key)) {
-      return { ...acc, [`- ${key}`]: data1[key] };
-    }
+      return { ...acc, [`+ ${key}`]: obj2[key] };
+    }, {});
 
-    return { ...acc, [`+ ${key}`]: data2[key] };
-  }, {});
+    return result;
+  };
 
-  const result = Object.entries(objectDiff).reduce((acc, [key, value]) => `${acc}\n  ${key}: ${value}`, '');
-
-  return `{${result}\n}`;
+  return iter(data1, data2);
 };

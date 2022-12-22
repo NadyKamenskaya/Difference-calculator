@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import yaml from 'js-yaml';
 import genDiff, { parsers } from '../src/index.js';
+import stylish from '../src/stylish.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,13 +12,13 @@ const getFixturePath = (filename) => join(__dirname, '..', '__fixtures__', filen
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
 test('check json comparison', () => {
-  const actual = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
+  const actual = stylish(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json')));
 
   expect(actual).toEqual(readFile('expected_file.json'));
 });
 
 test('check yaml comparison', () => {
-  const actual = genDiff(getFixturePath('filepath1.yml'), getFixturePath('filepath2.yml'));
+  const actual = stylish(genDiff(getFixturePath('filepath1.yml'), getFixturePath('filepath2.yml')));
 
   expect(actual).toEqual(readFile('expected_filepath.yml'));
 });
