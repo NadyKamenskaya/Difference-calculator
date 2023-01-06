@@ -3,6 +3,7 @@ import { cwd } from 'process';
 import { readFileSync } from 'fs';
 import yaml from 'js-yaml';
 import _ from 'lodash';
+import format from '../formatters/index.js';
 
 export const parsers = (file, fileExt) => {
   const result = (fileExt === 'json') ? JSON.parse(file) : yaml.load(file);
@@ -10,7 +11,8 @@ export const parsers = (file, fileExt) => {
   return result;
 };
 
-export default (path1, path2) => {
+export default (path1, path2, formatName) => {
+  const getFormat = format(formatName);
   const data1 = parsers(readFileSync(resolve(cwd(), path1)), extname(path1));
   const data2 = parsers(readFileSync(resolve(cwd(), path2)), extname(path2));
 
@@ -40,5 +42,5 @@ export default (path1, path2) => {
     return result;
   };
 
-  return iter(data1, data2);
+  return getFormat(iter(data1, data2));
 };
