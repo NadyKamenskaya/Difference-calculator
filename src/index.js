@@ -32,11 +32,11 @@ export default (path1, path2, formatName) => {
 
         return { ...acc, [`- ${key}`]: obj1[key], [`+ ${key}`]: obj2[key] };
       }
-      if (keys1.includes(key) && !keys2.includes(key)) {
-        return { ...acc, [`- ${key}`]: obj1[key] };
-      }
+      const newAcc = (keys1.includes(key) && !keys2.includes(key))
+        ? { ...acc, [`- ${key}`]: obj1[key] }
+        : { ...acc, [`+ ${key}`]: obj2[key] };
 
-      return { ...acc, [`+ ${key}`]: obj2[key] };
+      return newAcc;
     }, {});
 
     return result;
