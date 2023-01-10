@@ -33,11 +33,11 @@ export default (object) => {
           return [...acc, getRemovedObject(currentKey, value)];
         }
 
-        if (typeof value === 'object' && value !== null) {
-          return [...acc, { name: currentKey, content: iter(value) }];
-        }
+        const newAcc = (typeof value === 'object' && value !== null)
+          ? [...acc, { name: currentKey, content: iter(value) }]
+          : [...acc, getNotUpdatedObject(currentKey, value)];
 
-        return [...acc, getNotUpdatedObject(currentKey, value)];
+        return newAcc;
       }, []);
 
     return result;
