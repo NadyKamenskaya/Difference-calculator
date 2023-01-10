@@ -40,7 +40,7 @@ export default (object) => {
         }
 
         if (key.includes('-')) {
-          if (currentKey === nextKey.slice(2)) {
+          if (nextKey && currentKey === nextKey.slice(2)) {
             return `${acc}\n${getUpdatedProperty(`${path}.${currentKey}`, value, nextValue)}`;
           }
           const newAcc = (path === '') ? `${acc}\n${getRemovedProperty(currentKey)}`
