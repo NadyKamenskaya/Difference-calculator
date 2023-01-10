@@ -1,0 +1,112 @@
+[
+  {
+    "name": "common",
+    "content": [
+      {
+        "name": "follow",
+        "status": "added",
+        "content": false
+      },
+      {
+        "name": "setting1",
+        "status": "not updated",
+        "content": "Value 1"
+      },
+      {
+        "name": "setting2",
+        "status": "removed",
+        "content": 200
+      },
+      {
+        "name": "setting3",
+        "status": "updated",
+        "content_before": true,
+        "content_after": null
+      },
+      {
+        "name": "setting4",
+        "status": "added",
+        "content": "blah blah"
+      },
+      {
+        "name": "setting5",
+        "status": "added",
+        "content": {
+          "key5": "value5"
+        }
+      },
+      {
+        "name": "setting6",
+        "content": [
+          {
+            "name": "doge",
+            "content": [
+              {
+                "name": "wow",
+                "status": "updated",
+                "content_before": "",
+                "content_after": "so much"
+              }
+            ]
+          },
+          {
+            "name": "key",
+            "status": "not updated",
+            "content": "value"
+          },
+          {
+            "name": "ops",
+            "status": "added",
+            "content": "vops"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "group1",
+    "content": [
+      {
+        "name": "baz",
+        "status": "updated",
+        "content_before": "bas",
+        "content_after": "bars"
+      },
+      {
+        "name": "foo",
+        "status": "not updated",
+        "content": "bar"
+      },
+      {
+        "name": "nest",
+        "status": "updated",
+        "content_before": {
+          "key": "value"
+        },
+        "content_after": "str"
+      }
+    ]
+  },
+  {
+    "name": "group2",
+    "status": "removed",
+    "content": {
+      "abc": 12345,
+      "deep": {
+        "id": 45
+      }
+    }
+  },
+  {
+    "name": "group3",
+    "status": "added",
+    "content": {
+      "deep": {
+        "id": {
+          "number": 45
+        }
+      },
+      "fee": 100500
+    }
+  }
+]

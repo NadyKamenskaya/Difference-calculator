@@ -34,6 +34,20 @@ test('check yaml comparison plain', () => {
   expect(actual).toEqual(readFile('expected_filepath_plain.yml'));
 });
 
+test('check json comparison json', () => {
+  const actual = parsers(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'json'));
+  const expected = JSON.parse(readFile('expected_file_json.json'));
+
+  expect(actual).toEqual(expected);
+});
+
+test('check yaml comparison json', () => {
+  const actual = parsers(genDiff(getFixturePath('filepath1.yml'), getFixturePath('filepath2.yml'), 'json'));
+  const expected = yaml.load(readFile('expected_filepath_json.yml'));
+
+  expect(actual).toEqual(expected);
+});
+
 test('parsers json', () => {
   const actual = parsers(readFile('file1.json'), 'json');
   const expected = JSON.parse(readFile('file1.json'));
