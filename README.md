@@ -47,3 +47,4 @@ gendiff --help
 - [_**Asciinema of step 5**_](https://asciinema.org/a/BnxNRjucRDGUt8XdGV48i5EEz)
 - [_**Asciinema of step 6**_](https://asciinema.org/a/L7wrQcdxeG7IzaVaF0FOF7m5k)
 - [_**Asciinema of step 7**_](https://asciinema.org/a/LiX2UMuP0ItBfwLy5pOr6Ks9m)
+- [_**Asciinema of step 7**_](https://asciinema.org/a/iWjUj6eowPyyM1EAW30LCaDsg)
