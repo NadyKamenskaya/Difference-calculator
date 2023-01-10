@@ -21,30 +21,23 @@ export default (object) => {
           if (previousKey && currentKey === previousKey.slice(2)) {
             return acc;
           }
-          const newAcc = acc.push(getAddedObject(currentKey, value));
 
-          return newAcc;
+          return [...acc, getAddedObject(currentKey, value)];
         }
 
         if (key.includes('-')) {
           if (nextKey && currentKey === nextKey.slice(2)) {
-            const newAcc = acc.push(getUpdatedObject(currentKey, value, nextValue));
-
-            return newAcc;
+            return [...acc, getUpdatedObject(currentKey, value, nextValue)];
           }
-          const newAcc = acc.push(getRemovedObject(currentKey, value));
 
-          return newAcc;
+          return [...acc, getRemovedObject(currentKey, value)];
         }
 
         if (typeof value === 'object' && value !== null) {
-          const newAcc = acc.push({ name: currentKey, content: iter(value) });
-
-          return newAcc;
+          return [...acc, { name: currentKey, content: iter(value) }];
         }
-        const newAcc = acc.push(getNotUpdatedObject(currentKey, value));
 
-        return newAcc;
+        return [...acc, getNotUpdatedObject(currentKey, value)];
       }, []);
 
     return result;
