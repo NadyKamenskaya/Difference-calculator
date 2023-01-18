@@ -43,8 +43,13 @@ gendiff --help
 ```
 
 ### Asciinemas:
-- [_**Asciinema of step 3**_](https://asciinema.org/a/KbrSLtS59ViJmsJdALjvz2Rl0)
-- [_**Asciinema of step 5**_](https://asciinema.org/a/BnxNRjucRDGUt8XdGV48i5EEz)
-- [_**Asciinema of step 6**_](https://asciinema.org/a/L7wrQcdxeG7IzaVaF0FOF7m5k)
-- [_**Asciinema of step 7**_](https://asciinema.org/a/LiX2UMuP0ItBfwLy5pOr6Ks9m)
-- [_**Asciinema of step 7**_](https://asciinema.org/a/iWjUj6eowPyyM1EAW30LCaDsg)
+
+[![asciicast](https://asciinema.org/a/KbrSLtS59ViJmsJdALjvz2Rl0.svg)](https://asciinema.org/a/KbrSLtS59ViJmsJdALjvz2Rl0)
+
+[![asciicast](https://asciinema.org/a/BnxNRjucRDGUt8XdGV48i5EEz.svg)](https://asciinema.org/a/BnxNRjucRDGUt8XdGV48i5EEz)
+
+[![asciicast](https://asciinema.org/a/L7wrQcdxeG7IzaVaF0FOF7m5k.svg)](https://asciinema.org/a/L7wrQcdxeG7IzaVaF0FOF7m5k)
+
+[![asciicast](https://asciinema.org/a/LiX2UMuP0ItBfwLy5pOr6Ks9m.svg)](https://asciinema.org/a/LiX2UMuP0ItBfwLy5pOr6Ks9m)
+
+[![asciicast](https://asciinema.org/a/iWjUj6eowPyyM1EAW30LCaDsg.svg)](https://asciinema.org/a/iWjUj6eowPyyM1EAW30LCaDsg)
