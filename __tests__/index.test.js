@@ -13,8 +13,8 @@ test.each([
   { file1: 'file1.json', file2: 'file2.json' },
   { file1: 'filepath1.yml', file2: 'filepath2.yml' },
 ])('check file comparison', ({ file1, file2 }) => {
-  const expectedStylish = readFile('expected_stylish.json');
-  const expectedPlain = readFile('expected_plain.json');
+  const expectedStylish = readFile('expected_stylish.txt');
+  const expectedPlain = readFile('expected_plain.txt');
   const defaultFormat = genDiff(getFixturePath(file1), getFixturePath(file2));
   const stylishFormat = genDiff(getFixturePath(file1), getFixturePath(file2), 'stylish');
   const plainFormat = genDiff(getFixturePath(file1), getFixturePath(file2), 'plain');
