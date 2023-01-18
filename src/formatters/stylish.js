@@ -20,7 +20,7 @@ const stringify = (currentValue, depth) => {
   ].join('\n');
 };
 
-export default (diffTree) => {
+const stylish = (diffTree) => {
   const iter = (tree, depth) => {
     const result = tree.map((row) => {
       switch (row.type) {
@@ -46,3 +46,5 @@ export default (diffTree) => {
 
   return iter(diffTree, 1);
 };
+
+export default stylish;

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export default (data1, data2) => {
+const buildDiffTree = (data1, data2) => {
   const iter = (obj1, obj2) => {
     const keys1 = Object.keys(obj1);
     const keys2 = Object.keys(obj2);
@@ -34,3 +34,5 @@ export default (data1, data2) => {
 
   return iter(data1, data2);
 };
+
+export default buildDiffTree;
