@@ -2,15 +2,17 @@ import plain from './plain.js';
 import stylish from './stylish.js';
 import json from './json.js';
 
-export default (formatName = 'stylish') => {
+const formatTree = (diffTree, formatName = 'stylish') => {
   switch (formatName) {
     case 'stylish':
-      return stylish;
+      return stylish(diffTree);
     case 'plain':
-      return plain;
+      return plain(diffTree);
     case 'json':
-      return json;
+      return json(diffTree);
     default:
       throw new Error(`Unknown format: '${formatName}'!`);
   }
 };
+
+export default formatTree;
