@@ -10,46 +10,16 @@ const getFixturePath = (filename) => join(__dirname, '..', '__fixtures__', filen
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
 test.each([
-  {
-    file1: 'file1.json', file2: 'file2.json', expected: readFile('expected_file_stylish.json'),
-  },
-  {
-    file1: 'filepath1.yml', file2: 'filepath2.yml', expected: readFile('expected_filepath_stylish.yml'),
-  },
-])('check file comparison in default format', ({
-  file1, file2, expected,
-}) => {
-  const actual = genDiff(getFixturePath(file1), getFixturePath(file2));
+  { file1: 'file1.json', file2: 'file2.json' },
+  { file1: 'filepath1.yml', file2: 'filepath2.yml' },
+])('check file comparison', ({ file1, file2 }) => {
+  const expectedStylish = readFile('expected_stylish.json');
+  const expectedPlain = readFile('expected_plain.json');
+  const defaultFormat = genDiff(getFixturePath(file1), getFixturePath(file2));
+  const stylishFormat = genDiff(getFixturePath(file1), getFixturePath(file2), 'stylish');
+  const plainFormat = genDiff(getFixturePath(file1), getFixturePath(file2), 'plain');
 
-  expect(actual).toEqual(expected);
-});
-
-test.each([
-  {
-    file1: 'file1.json', file2: 'file2.json', format: 'stylish', expected: readFile('expected_file_stylish.json'),
-  },
-  {
-    file1: 'filepath1.yml', file2: 'filepath2.yml', format: 'stylish', expected: readFile('expected_filepath_stylish.yml'),
-  },
-])('check file comparison in stylish format', ({
-  file1, file2, format, expected,
-}) => {
-  const actual = genDiff(getFixturePath(file1), getFixturePath(file2), format);
-
-  expect(actual).toEqual(expected);
-});
-
-test.each([
-  {
-    file1: 'file1.json', file2: 'file2.json', format: 'plain', expected: readFile('expected_file_plain.json'),
-  },
-  {
-    file1: 'filepath1.yml', file2: 'filepath2.yml', format: 'plain', expected: readFile('expected_filepath_plain.yml'),
-  },
-])('check file comparison in plain format', ({
-  file1, file2, format, expected,
-}) => {
-  const actual = genDiff(getFixturePath(file1), getFixturePath(file2), format);
-
-  expect(actual).toEqual(expected);
+  expect(defaultFormat).toEqual(expectedStylish);
+  expect(stylishFormat).toEqual(expectedStylish);
+  expect(plainFormat).toEqual(expectedPlain);
 });
