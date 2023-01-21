@@ -15,11 +15,17 @@ test.each([
 ])('check file comparison', ({ file1, file2 }) => {
   const expectedStylish = readFile('expected_stylish.txt');
   const expectedPlain = readFile('expected_plain.txt');
-  const defaultFormat = genDiff(getFixturePath(file1), getFixturePath(file2));
-  const stylishFormat = genDiff(getFixturePath(file1), getFixturePath(file2), 'stylish');
-  const plainFormat = genDiff(getFixturePath(file1), getFixturePath(file2), 'plain');
+
+  const filePath1 = getFixturePath(file1);
+  const filePath2 = getFixturePath(file2);
+
+  const defaultFormat = genDiff(filePath1, filePath2);
+  const stylishFormat = genDiff(filePath1, filePath2, 'stylish');
+  const plainFormat = genDiff(filePath1, filePath2, 'plain');
+  const jsonFormat = genDiff(filePath1, filePath2, 'json');
 
   expect(defaultFormat).toEqual(expectedStylish);
   expect(stylishFormat).toEqual(expectedStylish);
   expect(plainFormat).toEqual(expectedPlain);
+  expect(() => JSON.parse(jsonFormat)).not.toThrow();
 });
