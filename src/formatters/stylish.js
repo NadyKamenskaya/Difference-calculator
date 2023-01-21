@@ -1,8 +1,11 @@
 import _ from 'lodash';
 
-const currentIndent = (depth) => ' '.repeat(depth * 4);
-const signIndent = (depth) => ' '.repeat((depth * 4) - 2);
-const bracketIndent = (depth) => ' '.repeat((depth * 4) - 4);
+const spacesCount = 4;
+const indentType = ' ';
+
+const currentIndent = (depth) => indentType.repeat(depth * spacesCount);
+const signIndent = (depth) => indentType.repeat((depth * spacesCount) - 2);
+const bracketIndent = (depth) => indentType.repeat((depth * spacesCount) - 4);
 
 const stringify = (currentValue, depth) => {
   if (!_.isObject(currentValue)) {
@@ -31,7 +34,7 @@ const stylish = (diffTree) => {
         case 'deleted':
           return `${signIndent(depth)}- ${row.name}: ${stringify(row.value, depth + 1)}`;
         case 'changed':
-          return `${signIndent(depth)}- ${row.name}: ${stringify(row.valueBefore, depth + 1)}\n${signIndent(depth)}+ ${row.name}: ${stringify(row.valueAfter, depth + 1)}`;
+          return `${signIndent(depth)}- ${row.name}: ${stringify(row.value1, depth + 1)}\n${signIndent(depth)}+ ${row.name}: ${stringify(row.value2, depth + 1)}`;
         default:
           return `${currentIndent(depth)}${row.name}: ${stringify(row.value, depth)}`;
       }
