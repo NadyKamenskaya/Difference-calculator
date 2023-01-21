@@ -1,6 +1,6 @@
 const stringify = (value) => {
   if (value === null) {
-    return JSON.stringify(value);
+    return String(value);
   }
 
   switch (typeof value) {
@@ -9,7 +9,7 @@ const stringify = (value) => {
     case 'object':
       return '[complex value]';
     default:
-      return value.toString();
+      return String(value);
   }
 };
 
@@ -29,7 +29,7 @@ const plain = (diffTree) => {
           case 'deleted':
             return `${acc}\n${getRemovedProperty([...path, row.name])}`;
           case 'changed':
-            return `${acc}\n${getUpdatedProperty([...path, row.name], row.valueBefore, row.valueAfter)}`;
+            return `${acc}\n${getUpdatedProperty([...path, row.name], row.value1, row.value2)}`;
           default:
             return acc;
         }
