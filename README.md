@@ -1,4 +1,4 @@
-# frontend-project-46
+# Difference-calculator
 
 ### Hexlet tests and linter status:
 
